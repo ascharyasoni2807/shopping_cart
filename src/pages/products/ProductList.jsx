@@ -37,6 +37,7 @@ const ProductList = ({
   const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
+    console.log(selectedCategory);
     if (selectedCategory) {
       fetchProductList(selectedCategory);
     } else {
@@ -57,10 +58,11 @@ const ProductList = ({
     setSelectedCategory(categoryId);
   };
 
-  const totalCount = cart?.reduce(
+  const totalCartItems = cart?.reduce(
     (total, product) => total + product.quantity,
     0
   );
+
   console.log(categories);
   const filteredProducts = selectedCategory
     ? products.filter((product) => product.category === selectedCategory)
@@ -82,9 +84,7 @@ const ProductList = ({
               }
               onSelect={handleCategoryChange}
             >
-              <Dropdown.Item eventKey={"all_categories"}>
-                {ALL_CATEGORIES}
-              </Dropdown.Item>
+              <Dropdown.Item>{ALL_CATEGORIES}</Dropdown.Item>
               {categories.map((category, index) => (
                 <Dropdown.Item key={index} eventKey={category.toLowerCase()}>
                   {category}
@@ -93,8 +93,12 @@ const ProductList = ({
             </DropdownButton>
           </Col>
           <Col>
-            <Button variant="primary" onClick={handleCheckout}>
-              {CHECKOUT} <Badge bg="danger">{totalCount}</Badge>
+            <Button
+              variant="primary"
+              onClick={handleCheckout}
+              className="product__checkout-btn"
+            >
+              {CHECKOUT} <Badge bg="danger">{totalCartItems}</Badge>
             </Button>
           </Col>
         </Row>

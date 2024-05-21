@@ -12,3 +12,7 @@
     width: 100%;
     text-align: center;
 }
+
+.product__checkout-btn {
+    width: 10rem;
+}
