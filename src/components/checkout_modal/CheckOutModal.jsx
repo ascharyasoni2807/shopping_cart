@@ -1,7 +1,7 @@
 // CheckoutModal.js
 import React from "react";
 import { connect } from "react-redux";
-import { Modal, Badge, ListGroup } from "react-bootstrap";
+import { Modal, ListGroup } from "react-bootstrap";
 import { removeFromCart } from "../../redux/actions/action";
 import {
   CHECKOUT,

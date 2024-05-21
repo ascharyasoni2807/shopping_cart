@@ -36,6 +36,7 @@ const ProductList = ({
       fetchProductList();
       fetchCategories();
     }
+    // eslint-disable-next-line
   }, [selectedCategory]);
 
   const handleAddToCart = (product) => {
