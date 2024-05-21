@@ -37,15 +37,11 @@ const ProductList = ({
   const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
-    fetchCategories();
-    fetchProductList();
-  }, []);
-
-  useEffect(() => {
     if (selectedCategory) {
       fetchProductList(selectedCategory);
     } else {
       fetchProductList();
+      fetchCategories();
     }
   }, [selectedCategory]);
 

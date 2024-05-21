@@ -9,14 +9,18 @@ import {
   FETCH_CATEGORIES_FAILURE,
 } from "./action_types";
 
-export const fetchProductList = (loadMore = false) => {
+// defining these here only , more to focus on functionality
+const productListEndPoint = "https://dummyjson.com/products";
+const categoryProductListEndPoint = (category) =>
+  `https://dummyjson.com/products/category/${category}`;
+
+export const fetchProductList = (category) => {
   return async (dispatch, getState) => {
     dispatch({ type: FETCH_DATA_REQUEST });
     try {
-      const state = getState();
-      const currentPage = state.currentPage;
-      const offset = (currentPage - 1) * 10;
-      const endpoint = "https://dummyjson.com/products";
+      const endpoint = category
+        ? categoryProductListEndPoint(category)
+        : productListEndPoint;
       fetch(endpoint)
         .then((res) => res.json())
         .then((json) => {
