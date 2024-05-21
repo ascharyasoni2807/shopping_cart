@@ -24,6 +24,8 @@ import {
 import "./ProductList.css";
 import LoadingSpinner from "../../components/custom_spinner/LoadingSpinner";
 import PriceFilter from "../../components/price_filter/PriceFilter";
+import { filterProductsByPriceRange } from "../../utils/utils";
+import CategoryFilter from "../../components/category_filter/CategoryFilter";
 
 const ProductList = ({
   products,
@@ -36,6 +38,7 @@ const ProductList = ({
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedPriceRange, setSelectedPriceRange] = useState("");
 
   useEffect(() => {
     console.log(selectedCategory);
@@ -58,29 +61,14 @@ const ProductList = ({
   const handleCategoryChange = (categoryId) => {
     setSelectedCategory(categoryId);
   };
-  const [selectedPriceRange, setSelectedPriceRange] = useState("");
 
   const handlePriceRangeChange = (priceRange) => {
     setSelectedPriceRange(priceRange);
   };
 
-  const filterProductsByPriceRange = (range) => {
-    const [min, max] = range.split("-").map(Number);
-    if (max === undefined) {
-      return products.filter((product) => product.price >= min);
-    } else {
-      return products.filter(
-        (product) => product.price >= min && product.price <= max
-      );
-    }
-  };
-
   let filteredProducts = products;
   if (selectedPriceRange) {
-    filteredProducts =
-      selectedPriceRange === "2000"
-        ? filterProductsByPriceRange("2000-")
-        : filterProductsByPriceRange(selectedPriceRange);
+    filteredProducts = filterProductsByPriceRange(selectedPriceRange, products);
   }
 
   const totalCartItems = cart?.reduce(
@@ -99,22 +87,11 @@ const ProductList = ({
             <PriceFilter handlePriceRangeChange={handlePriceRangeChange} />
           </Col>
           <Col>
-            <DropdownButton
-              id="dropdown"
-              title={
-                selectedCategory
-                  ? categories.find((category) => category === selectedCategory)
-                  : "All Categories"
-              }
-              onSelect={handleCategoryChange}
-            >
-              <Dropdown.Item>{ALL_CATEGORIES}</Dropdown.Item>
-              {categories.map((category, index) => (
-                <Dropdown.Item key={index} eventKey={category.toLowerCase()}>
-                  {category}
-                </Dropdown.Item>
-              ))}
-            </DropdownButton>
+            <CategoryFilter
+              categories={categories}
+              handleCategoryChange={handleCategoryChange}
+              selectedCategory={selectedCategory}
+            />
           </Col>
           <Col>
             <Button

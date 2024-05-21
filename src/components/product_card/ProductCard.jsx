@@ -1,5 +1,6 @@
-import React from "react";
 import "./ProductCard.css";
+
+import React from "react";
 import { ADD_TO_CART } from "../../constants/constant";
 import CustomButton from "../custom_button/CustomButton";
 
