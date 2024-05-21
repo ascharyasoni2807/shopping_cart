@@ -14,11 +14,9 @@ const ProductCard = ({ product, onAddToCart }) => {
       <div className="product-details">
         <h3>{product.title}</h3>
         <p>{product.description}</p>
-        <p className="product-price">
-          <span className="original-price">${product.price}</span>
-        </p>
-        <p className="product-rating">Rating: {product.rating}⭐</p>
-        <p className="product-stock">Stock: {product.stock}</p>
+        <p>${product.price}</p>
+        <p>Rating: {product.rating} ⭐</p>
+        <p>Stock: {product.stock}</p>
         <CustomButton
           variant={"primary"}
           onClick={() => onAddToCart(product.id)}
