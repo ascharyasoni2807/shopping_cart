@@ -7,3 +7,8 @@
 .product-wrapper {
     padding: 1rem;
 }
+
+.product__empty-list {
+    width: 100%;
+    text-align: center;
+}

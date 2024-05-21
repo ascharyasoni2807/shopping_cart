@@ -6,3 +6,5 @@ export const TOTAL_ITEM = "Total Item";
 export const CHECKOUT = "Checkout";
 export const CLOSE = "Close";
 export const REMOVE = "Remove";
+export const NO_PRODUCTS = "No Products to display";
+export const ALL_CATEGORIES = "All Categories";

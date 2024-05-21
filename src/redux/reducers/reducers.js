@@ -6,12 +6,13 @@ import {
   FETCH_DATA_REQUEST,
   FETCH_DATA_SUCCESS,
   FETCH_DATA_FAILURE,
-  LOAD_MORE_DATA_SUCCESS,
+  FETCH_CATEGORIES_SUCCESS,
+  FETCH_CATEGORIES_REQUEST,
+  FETCH_CATEGORIES_FAILURE,
 } from "../actions/action_types";
 
 const initialState = {
   products: [],
-  currentPage: 1,
   loading: false,
   error: null,
 };
@@ -29,16 +30,36 @@ const productReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         products: action.payload,
-        currentPage: state.currentPage + 1,
       };
-    case LOAD_MORE_DATA_SUCCESS:
+    case FETCH_DATA_FAILURE:
       return {
         ...state,
         loading: false,
-        products: [...state.products, ...action.payload],
-        currentPage: state.currentPage + 1,
+        error: action.payload,
       };
-    case FETCH_DATA_FAILURE:
+    default:
+      return state;
+  }
+};
+
+const categoryInitialState = {
+  categories: [],
+  loading: false,
+};
+const categoriesReducer = (state = categoryInitialState, action) => {
+  switch (action.type) {
+    case FETCH_CATEGORIES_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case FETCH_CATEGORIES_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        categories: action.payload,
+      };
+    case FETCH_CATEGORIES_FAILURE:
       return {
         ...state,
         loading: false,
@@ -105,6 +126,7 @@ const cartReducer = (state = initialCartState, action) => {
 const rootReducer = combineReducers({
   productReducer,
   cartReducer,
+  categoriesReducer,
 });
 
 export default rootReducer;
