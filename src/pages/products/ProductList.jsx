@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-import ProductCard from '../components/product_card/ProductCard';
-import { addToCart, fetchOrLoadMoreProducts, removeFromCart } from '../redux/actions/action';
+import ProductCard from '../../components/product_card/ProductCard';
+import { addToCart, fetchOrLoadMoreProducts, removeFromCart } from '../../redux/actions/action';
 import { Col, Row, Button, Badge } from 'react-bootstrap';
-import CheckoutModal from './CheckoutModal';
+import CheckOutModal from '../../components/checkout_modal/CheckOutModal';
+
 
 
 const ProductList = ({ products, loading, fetchOrLoadMoreProducts, addToCart, cart,removeFromCart }) => {
@@ -23,7 +24,7 @@ const ProductList = ({ products, loading, fetchOrLoadMoreProducts, addToCart, ca
   const handleCheckout = () => {
     setShowModal(true);
   };
-  const totalCount = cart.reduce((total, product) => total + product.quantity, 0);
+  const totalCount = cart?.reduce((total, product) => total + product.quantity, 0);
 
   return (
     <div>
@@ -44,7 +45,7 @@ const ProductList = ({ products, loading, fetchOrLoadMoreProducts, addToCart, ca
           ))}
         </Row>
       )}
-    { showModal && <CheckoutModal show={showModal} handleClose={() => setShowModal(false)} />}
+    { showModal && <CheckOutModal show={showModal} handleClose={() => setShowModal(false)} />}
     </div>
   );
 };

@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Modal, Button, Badge, ListGroup } from 'react-bootstrap';
-import { removeFromCart } from '../redux/actions/action';
+import { removeFromCart } from '../../redux/actions/action';
 
 export const CheckoutModal = ({ show, handleClose, cart, totalAmount, removeFromCart }) => {
   const handleRemoveFromCart = (productId) => {
