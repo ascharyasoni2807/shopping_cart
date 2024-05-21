@@ -74,7 +74,7 @@ const ProductList = ({
         <Row>
           <Col>
             <DropdownButton
-              id="dropdown-basic-button"
+              id="dropdown"
               title={
                 selectedCategory
                   ? categories.find((category) => category === selectedCategory)
