@@ -60,7 +60,6 @@ const cartReducer = (state = initialCartState, action) => {
       const existingProductIndex = state.cart.findIndex(
         (item) => item.id === product.id
       );
-
       if (existingProductIndex !== -1) {
         return {
           ...state,
@@ -84,7 +83,6 @@ const cartReducer = (state = initialCartState, action) => {
       const productIndex = state.cart.findIndex(
         (item) => item.id === action.payload.productId
       );
-      console.log(action, productIndex, state);
       if (productIndex !== -1) {
         const updatedCart = [...state.cart];
         if (updatedCart[productIndex].quantity > 1) {

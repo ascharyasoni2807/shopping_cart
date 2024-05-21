@@ -1,0 +1,10 @@
+:root {
+
+    /*  we can define our colors here and use them , one of my practice */
+
+    /* Also we can handle themes if we require */
+    --primary-color: blue;
+    --page-header: #91D2DF;
+    --white-color: white;
+    --page-background: #FFF5BF
+}
