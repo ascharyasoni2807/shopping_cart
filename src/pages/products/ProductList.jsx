@@ -6,21 +6,9 @@ import {
   fetchCategories,
   fetchProductList,
 } from "../../redux/actions/action";
-import {
-  Col,
-  Row,
-  Button,
-  Badge,
-  Dropdown,
-  DropdownButton,
-} from "react-bootstrap";
+import { Col, Row, Button, Badge } from "react-bootstrap";
 import CheckOutModal from "../../components/checkout_modal/CheckOutModal";
-import {
-  ALL_CATEGORIES,
-  CHECKOUT,
-  NO_PRODUCTS,
-  PRODUCT_LIST,
-} from "../../constants/constant";
+import { CHECKOUT, NO_PRODUCTS, PRODUCT_LIST } from "../../constants/constant";
 import "./ProductList.css";
 import LoadingSpinner from "../../components/custom_spinner/LoadingSpinner";
 import PriceFilter from "../../components/price_filter/PriceFilter";
