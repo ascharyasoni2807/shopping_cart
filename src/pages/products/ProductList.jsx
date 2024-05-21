@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import ProductCard from "../../components/product_card/ProductCard";
-import {
-  addToCart,
-  fetchOrLoadMoreProducts,
-  removeFromCart,
-} from "../../redux/actions/action";
+import { addToCart, fetchOrLoadMoreProducts } from "../../redux/actions/action";
 import { Col, Row, Button, Badge } from "react-bootstrap";
 import CheckOutModal from "../../components/checkout_modal/CheckOutModal";
 import { CHECKOUT, PRODUCT_LIST } from "../../constants/constant";

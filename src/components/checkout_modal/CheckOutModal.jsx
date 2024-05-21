@@ -9,6 +9,7 @@ import {
   PROCEED_TO_CHECKOUT,
   REMOVE,
   TOTAL,
+  TOTAL_ITEM,
 } from "../../constants/constant";
 import CustomButton from "../custom_button/CustomButton";
 
@@ -57,6 +58,9 @@ export const CheckoutModal = ({
         <h5 className="mt-3">
           {TOTAL}: ${totalAmount?.toFixed(2)}
         </h5>
+        <h5 className="mt-3">
+          {TOTAL_ITEM}: {totalCount}
+        </h5>
       </Modal.Body>
       <Modal.Footer>
         <CustomButton variant="secondary" onClick={handleClose} label={CLOSE} />
@@ -66,7 +70,6 @@ export const CheckoutModal = ({
           label={PROCEED_TO_CHECKOUT}
         />
       </Modal.Footer>
-      <Badge bg="secondary">{totalCount}</Badge>
     </Modal>
   );
 };
