@@ -1,32 +1,28 @@
 import "./ProductCard.css";
 
-import React, { useEffect, useState } from "react";
+import React, { useMemo } from "react";
 import { ADD_TO_CART, RATINGS, STOCKS } from "../../constants/constant";
 import CustomButton from "../custom_button/CustomButton";
 import { addToCart, removeFromCart } from "../../redux/actions/action";
 import { connect } from "react-redux";
 
 const ProductCard = ({ product, addToCart, removeFromCart, cart }) => {
-  const [quantity, setQuantity] = useState(0);
-
-  useEffect(() => {
+  const cartQuantity = useMemo(() => {
     const cartProduct = cart.find((item) => item.id === product.id);
     if (cartProduct) {
-      setQuantity(cartProduct.quantity);
+      return cartProduct.quantity;
     } else {
-      setQuantity(0);
+      return 0;
     }
   }, [cart, product]);
 
   const handleIncrement = () => {
     addToCart(product);
-    setQuantity(quantity + 1);
   };
 
   const handleDecrement = () => {
-    if (quantity > 0) {
+    if (cartQuantity > 0) {
       removeFromCart(product?.id);
-      setQuantity(quantity - 1);
     }
   };
 
@@ -50,13 +46,10 @@ const ProductCard = ({ product, addToCart, removeFromCart, cart }) => {
           {STOCKS}: {product?.stock}
         </p>
       </div>
-      {quantity === 0 ? (
+      {cartQuantity === 0 ? (
         <CustomButton
           variant={"primary"}
-          onClick={() => {
-            setQuantity(quantity + 1);
-            addToCart(product);
-          }}
+          onClick={handleIncrement}
           label={ADD_TO_CART}
           className={"product__add-to-cart"}
         />
@@ -68,7 +61,7 @@ const ProductCard = ({ product, addToCart, removeFromCart, cart }) => {
             label={"-"}
             className={"product-card__quantity-button"}
           />
-          <span>{quantity}</span>
+          <span>{cartQuantity}</span>
           <CustomButton
             variant="primary"
             onClick={handleIncrement}
