@@ -6,6 +6,7 @@ import {
 
 const categoryInitialState = {
   categories: [],
+  // we can use it's loading if required for UI
   loading: false,
 };
 const categoriesReducer = (state = categoryInitialState, action) => {

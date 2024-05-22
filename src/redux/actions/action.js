@@ -9,13 +9,14 @@ import {
   FETCH_CATEGORIES_FAILURE,
 } from "./action_types";
 
-// defining these here only , more to focus on functionality
+// Defining these here only (we cane have them in separate), more to focus on functionality
 const productListEndPoint = "https://dummyjson.com/products";
 const categoryProductListEndPoint = (category) =>
   `https://dummyjson.com/products/category/${category}`;
 const categoriesEndPoint = "https://dummyjson.com/products/categories";
 
-//So i am writing here only , we can have separate folder for services. Utility function for making API calls
+// TODO:
+//So i am writing fetchApi here only , we can have separate folder for services. Utility function for making API calls
 const fetchData = async (endpoint) => {
   const response = await fetch(endpoint);
   if (!response.ok) {
