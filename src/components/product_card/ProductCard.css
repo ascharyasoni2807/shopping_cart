@@ -46,3 +46,15 @@
   line-height: 1.5rem;
   height: 3rem;
 }
+
+.product-card__quantity-selector {
+  width: 100%;
+  text-align: center;
+}
+
+.product-card__quantity-button {
+  margin: 0rem 0.5rem;
+  width: 20%;
+  border: none;
+  background: var(--page-header);
+}

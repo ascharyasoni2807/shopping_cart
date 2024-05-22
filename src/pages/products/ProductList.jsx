@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import ProductCard from "../../components/product_card/ProductCard";
-import {
-  addToCart,
-  fetchCategories,
-  fetchProductList,
-} from "../../redux/actions/action";
+import { fetchCategories, fetchProductList } from "../../redux/actions/action";
 import { Col, Row, Button, Badge } from "react-bootstrap";
 import CheckOutModal from "../../components/checkout_modal/CheckOutModal";
 import { CHECKOUT, NO_PRODUCTS, PRODUCT_LIST } from "../../constants/constant";
@@ -20,7 +16,6 @@ const ProductList = ({
   loading,
   fetchProductList,
   fetchCategories,
-  addToCart,
   cart,
   categories,
 }) => {
@@ -37,10 +32,6 @@ const ProductList = ({
     }
     // eslint-disable-next-line
   }, [selectedCategory]);
-
-  const handleAddToCart = (product) => {
-    addToCart(product);
-  };
 
   const handleCheckout = () => {
     setShowModal(true);
@@ -101,10 +92,7 @@ const ProductList = ({
             {filteredProducts?.length > 0 ? (
               filteredProducts?.map((product) => (
                 <Col key={product.id}>
-                  <ProductCard
-                    product={product}
-                    onAddToCart={() => handleAddToCart(product)}
-                  />
+                  <ProductCard product={product} />
                 </Col>
               ))
             ) : (
@@ -132,7 +120,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   fetchProductList,
-  addToCart,
   fetchCategories,
 };
 
