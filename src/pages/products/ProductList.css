@@ -14,7 +14,9 @@
     text-align: center;
 }
 
-
+.page-header__filters {
+    text-align: end;
+}
 
 .product__checkout-btn-sticky {
     width: 10rem;

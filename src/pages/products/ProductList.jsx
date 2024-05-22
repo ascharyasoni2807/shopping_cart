@@ -62,7 +62,7 @@ const ProductList = ({
       >
         {/* we can separate out this header as common for all pages, currently keeping here only as we have single page */}
         <h2>{PRODUCTS}</h2>
-        <Row className="gy-1">
+        <Row className="gy-1 page-header__filters">
           <Col>
             <PriceFilter handlePriceRangeChange={handlePriceRangeChange} />
           </Col>
@@ -72,15 +72,6 @@ const ProductList = ({
               handleCategoryChange={handleCategoryChange}
               selectedCategory={selectedCategory}
             />
-          </Col>
-          <Col>
-            <Button
-              variant="primary"
-              onClick={handleCheckout}
-              className="product__checkout-btn-sticky"
-            >
-              {CHECKOUT} <Badge bg="danger">{totalCartItems}</Badge>
-            </Button>
           </Col>
         </Row>
       </div>
@@ -101,6 +92,13 @@ const ProductList = ({
           </Row>
         </div>
       )}
+      <Button
+        variant="primary"
+        onClick={handleCheckout}
+        className="product__checkout-btn-sticky"
+      >
+        {CHECKOUT} <Badge bg="danger">{totalCartItems}</Badge>
+      </Button>
       {showModal && (
         <CheckOutModal
           show={showModal}
