@@ -14,6 +14,15 @@
     text-align: center;
 }
 
-.product__checkout-btn {
+
+
+.product__checkout-btn-sticky {
     width: 10rem;
+    height: 4rem;
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    z-index: 1000;
+    background: var(--black-color);
+    border: none;
 }

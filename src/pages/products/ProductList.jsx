@@ -86,7 +86,7 @@ const ProductList = ({
             <Button
               variant="primary"
               onClick={handleCheckout}
-              className="product__checkout-btn"
+              className="product__checkout-btn-sticky"
             >
               {CHECKOUT} <Badge bg="danger">{totalCartItems}</Badge>
             </Button>
