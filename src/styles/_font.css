@@ -1,4 +1,4 @@
 :root {
-    /*  we can define our colors here and use them , one of my practice  same as for colors */
+    /*  we can define our fonts here and use them , one of my practice  same as for colors , we can use them by var(--primary-text-font) in css*/
     --primary-text-font: normal normal 600 1rem/1.5rem ""
 }
