@@ -4,7 +4,7 @@ import ProductCard from "../../components/product_card/ProductCard";
 import { fetchCategories, fetchProductList } from "../../redux/actions/action";
 import { Col, Row, Button, Badge } from "react-bootstrap";
 import CheckOutModal from "../../components/checkout_modal/CheckOutModal";
-import { CHECKOUT, NO_PRODUCTS, PRODUCT_LIST } from "../../constants/constant";
+import { CHECKOUT, NO_PRODUCTS, PRODUCTS } from "../../constants/constant";
 import "./ProductList.css";
 import LoadingSpinner from "../../components/custom_spinner/LoadingSpinner";
 import PriceFilter from "../../components/price_filter/PriceFilter";
@@ -61,7 +61,7 @@ const ProductList = ({
         className={`page-header d-flex justify-content-between align-items-center mb-4`}
       >
         {/* we can separate out this header as common for all pages, currently keeping here only as we have single page */}
-        <h2>{PRODUCT_LIST}</h2>
+        <h2>{PRODUCTS}</h2>
         <Row className="gy-1">
           <Col>
             <PriceFilter handlePriceRangeChange={handlePriceRangeChange} />

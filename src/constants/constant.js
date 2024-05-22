@@ -1,6 +1,6 @@
 // here i have defined the constants which can be reusable
 
-export const PRODUCT_LIST = "Product List";
+export const PRODUCTS = "Products";
 export const ADD_TO_CART = "Add to Cart";
 export const PROCEED_TO_CHECKOUT = "Proceed to Checkout";
 export const TOTAL = "Total";
