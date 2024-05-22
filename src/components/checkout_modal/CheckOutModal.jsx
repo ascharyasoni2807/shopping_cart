@@ -24,8 +24,7 @@ export const CheckoutModal = ({
     removeFromCart(productId);
   };
 
-  // Calculate total count of products in the cart
-  const totalCount = cart.reduce(
+  const totalItemsInCart = cart.reduce(
     (total, product) => total + product.quantity,
     0
   );
@@ -59,7 +58,7 @@ export const CheckoutModal = ({
           {TOTAL}: ${totalAmount?.toFixed(2)}
         </h5>
         <h5 className="mt-3">
-          {TOTAL_ITEM}: {totalCount}
+          {TOTAL_ITEM}: {totalItemsInCart}
         </h5>
       </Modal.Body>
       <Modal.Footer>

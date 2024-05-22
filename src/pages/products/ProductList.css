@@ -5,7 +5,8 @@
 
 
 .product-wrapper {
-    padding: 1rem;
+    padding: 0rem 1rem;
+    background-color: var(--grey-background);
 }
 
 .product__empty-list {

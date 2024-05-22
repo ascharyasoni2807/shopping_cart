@@ -29,7 +29,6 @@ const ProductList = ({
   const [selectedPriceRange, setSelectedPriceRange] = useState("");
 
   useEffect(() => {
-    console.log(selectedCategory);
     if (selectedCategory) {
       fetchProductList(selectedCategory);
     } else {
@@ -70,8 +69,9 @@ const ProductList = ({
       <div
         className={`page-header d-flex justify-content-between align-items-center mb-4`}
       >
+        {/* we can separate out this header as common for all pages, currently keeping here only as we have single page */}
         <h2>{PRODUCT_LIST}</h2>
-        <Row>
+        <Row className="gy-1">
           <Col>
             <PriceFilter handlePriceRangeChange={handlePriceRangeChange} />
           </Col>
@@ -98,7 +98,7 @@ const ProductList = ({
       ) : (
         <div className="product-wrapper">
           <Row xs={1} md={2} lg={3} xl={4} className="gx-4 gy-4">
-            {filteredProducts.length > 0 ? (
+            {filteredProducts?.length > 0 ? (
               filteredProducts?.map((product) => (
                 <Col key={product.id}>
                   <ProductCard
