@@ -12,17 +12,20 @@ const CategoryFilter = ({
       id="dropdown"
       title={
         selectedCategory
-          ? categories.find((category) => category === selectedCategory)
-          : "All Categories"
+          ? categories?.find((category) => category?.slug === selectedCategory)
+              .name
+          : ALL_CATEGORIES
       }
       onSelect={handleCategoryChange}
     >
       <Dropdown.Item>{ALL_CATEGORIES}</Dropdown.Item>
-      {categories.map((category, index) => (
-        <Dropdown.Item key={index} eventKey={category.toLowerCase()}>
-          {category}
-        </Dropdown.Item>
-      ))}
+      {categories?.map((category, index) => {
+        return (
+          <Dropdown.Item key={index} eventKey={category?.slug}>
+            {category?.name}
+          </Dropdown.Item>
+        );
+      })}
     </DropdownButton>
   );
 };
