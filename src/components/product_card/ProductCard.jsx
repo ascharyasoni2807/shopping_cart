@@ -28,7 +28,7 @@ const ProductCard = ({ product, addToCart, removeFromCart, cart }) => {
 
   return (
     <div className="product-card">
-      <h4>{product?.title}</h4>
+      <h6>{product?.title}</h6>
       <img
         src={product?.thumbnail}
         alt={"dummy"}
